@@ -134,7 +134,8 @@ def main():
     (OUT / "videos.json").write_text(
         json.dumps({"date": TODAY.isoformat(), "items": picked}, ensure_ascii=False, indent=1),
         encoding="utf-8")
-    print(f"{path.name}: 対象 {len(items)} 件から {len(picked)} 件を掲載")
+    # ログ（cp932）で化けないよう ASCII で出す
+    print(f"{path.name}: picked {len(picked)} of {len(items)} released items")
 
 
 if __name__ == "__main__":
